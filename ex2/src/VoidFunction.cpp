@@ -3,6 +3,7 @@
 //
 
 #include "../includes/VoidFunction.h"
+#include "../includes/Returnvaluefunction.h"
 #include "../includes/Subject.h"
 #include "../includes/Student.h"
 #include <iostream>
@@ -14,75 +15,56 @@
 
 
 using namespace std;
-bool is_alphabet (const string &s){
-    for(char c: s){
-        if(isalpha(c) || c ==' ')
+
+bool is_alphabet(const string &s) {
+    for (char c: s) {
+        if (isalpha(c) || c == ' ')
             return true;
     }
     return false;
 }
-bool is_number(const string &s){
-    for(char c:s)
-        if(isdigit(c))
+
+bool is_number(const string &s) {
+    for (char c: s)
+        if (isdigit(c))
             return true;
     return false;
 }
-string get_Date_ofBirth(){
-    string date{};
-    string month{};
-    string year{};
-    string date_of_birth{};
-    bool done1{false}, done2 {false},done3 {false};;
-    while (!done1){
-        cout<<"Enter the date: ";
-        getline(cin, date);
-        if(date.length()==2 && is_number(date)){
-            done1 = true;
-        } else {
-            cout << "The type of date is not correct. Please try again!" << endl;
-            done1 = false;
-        }
-    }
-    while (!done2){
-        cout<<"Enter the moth: ";
-        getline(cin,month);
-        if( is_number(month) && month.length()==2 ){
-            done2 = true;
-        } else {
-            cout << "The type of month is not correct. Please try again!" << endl;
-            done2 = false;
-        }
-    }
-    while(!done3){
-        cout<<"Enter the year: ";
-        getline(cin, year);
-        if( is_number(year) && year.length()==4){
-            done3 = true;
-        } else {
-            cout << "The type of year is not correct. Please try again!" << endl;
-            done3 = false;
-        }
-    }
-    date_of_birth = date +"/"+month+"/"+year;
-    return date_of_birth;
-}
-string identify(){
+
+//string get_Date_ofBirth() {
+//    string date_of_birth{};
+//    while(true){
+//        cin.clear();
+//        cout << "Enter the date of birth of student (follow date/month/years): ";
+//        getline(cin,date_of_birth);
+//        if(){
+//
+//        } else{
+//
+//        }
+//    }
+//
+//
+//}
+
+string identify() {
     string temp{};
     string id{};
-    bool done{false};
-    while (!done){
-        cout<<"Enter the numeric part of ID (XXX): ";
-        getline(cin,id);
-        if(is_number(id) && id.length() == 3){
-            done = true;
-        } else{
-            cout<<"Wrong format of numeric part of ID. Please try again!"<<endl;
-            done = false;
+    while (true) {
+        cin.clear();
+        cout << "Enter the numeric part of ID (XXX): ";
+        getline(cin, id);
+        if (is_number(id) && id.length() == 3) {
+            break;
+        } else {
+            cout << "Wrong format of numeric part of ID. Please try again!" << endl;
+            break;
         }
     }
     temp = "BA9-" + id;
-    return  temp;
+    return temp;
 }
+
 void display_menu() {
     cout << "1. Add the subject to the list" << endl;
     cout << "2. Modify the variables in a subject" << endl;
@@ -99,28 +81,30 @@ void display_menu() {
     cout << setfill(' ') << endl;
     cout << "Enter a selection: ";
 }
-void display(const list<Subject>& l) {
+
+void display(const list<Subject> &l) {
     cout << setw(10) << left << "ID" << setw(50) << left << "Name of subject" << endl;
     cout << setw(60) << setfill('-') << "" << endl;
     cout << setfill(' ') << endl;
-    for (const auto& elem : l) {
+    for (const auto &elem: l) {
         cout << elem << endl;
     }
     cout << endl;
 }
-void display(const list<Student>& l) {
+
+void display(const list<Student> &l) {
     cout << setw(20) << left << "Name of student" << setw(20) << left << "Date of birth"
          << setw(20) << left << "ID" << setw(20) << left << "Address"
          << setw(20) << left << "Phone number" << endl;
     cout << setw(100) << setfill('-') << "" << endl;
     cout << setfill(' ') << endl;
-    for (const auto& elem : l) {
+    for (const auto &elem: l) {
         cout << elem << endl;
     }
     cout << endl;
 
 }
-void GetSubjectInfor(Subject* s) {
+void GetSubjectInfor(Subject *s) {
     string name;
     string ID1;
     cin.clear();
@@ -133,7 +117,8 @@ void GetSubjectInfor(Subject* s) {
     Subject s1(name, ID1);
     *s = s1;
 }
-void GetStudentInfor(Student*s){
+
+void GetStudentInfor(Student *s) {
     bool done{false};
     string first_name;
     string last_name;
@@ -143,27 +128,49 @@ void GetStudentInfor(Student*s){
     string phone_num;
     cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    while(!done){
+    while (true){
         cout << "Enter the first name of student: ";
         getline(cin, first_name);
+        if (is_alphabet(first_name)) {
+            break;
+        } else {
+            cout << "First name or last name is not alphabet. Please try again!" << endl;
+            break;
+        }
+    }
+    while (!done) {
         cout << "Enter the last name of student: ";
         getline(cin, last_name);
-        if(is_alphabet(first_name) && is_alphabet(last_name)){
+        if (is_alphabet(last_name)) {
             done = true;
-        } else{
-            cout<<"First name or last name is not alphabet. Please try again!"<<endl;
+        } else {
+            cout << "First name or last name is not alphabet. Please try again!" << endl;
             done = false;
         }
     }
-    cout << "Enter the date of birth of student (follow date - month - years."<<endl;
-    date_of_birth = get_Date_ofBirth();
-    cout << "Enter the ID of student (format of BA-XXX): ";
+//    cout << "Enter the date of birth of student (follow date/month/years): " << endl;
+//    date_of_birth = get_Date_ofBirth();
+    cout << "Enter the date of birth of student (follow date/month/years): ";
+    getline(cin,date_of_birth);
+    cout << "Enter the ID of Student (format of BA-XXX) " << endl;
     ID = identify();
     cout << "Enter the address of student: ";
     getline(cin, address);
     cout << "Enter the phone number of student: ";
     getline(cin, phone_num);
 
-    Student st1 (first_name,last_name,date_of_birth, ID, address,phone_num);
-    *s=st1;
+    Student st1(first_name, last_name, date_of_birth, ID, address, phone_num);
+    *s = st1;
+}
+void GetIDofStudent(Student *s) {
+    string first_name;
+    string last_name;
+    string date_of_birth;
+    string ID;
+    string address;
+    string phone_num;
+    cout << "Enter the ID of Student (format of BA-XXX) " << endl;
+    ID = identify();
+    Student st1(first_name, last_name, date_of_birth, ID, address, phone_num);
+    *s = st1;
 }

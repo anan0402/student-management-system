@@ -15,8 +15,7 @@ bool Student::operator<(const Student& rhs) {
     return (temp1 < temp2);
 }
 bool Student::operator==(const Student& rhs)const {
-    return(this->first_name == rhs.first_name && this->last_name == rhs.last_name && this->date_of_birth == rhs.date_of_birth &&
-           this->ID == rhs.ID && this->address == rhs.address && this->phone_num == rhs.phone_num);
+    return(this->ID == rhs.ID );
 }
 
 void Student::set_FirstName(string first_name) {
