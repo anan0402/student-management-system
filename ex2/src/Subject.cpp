@@ -2,7 +2,6 @@
 // Created by AnDTN on 2/7/2023.
 //
 
-#include "../includes/Subject.h"
 Subject::Subject() :name{ "Unknown" }, ID1{ "Unknown" } {}
 Subject::Subject(string name, string ID)
         :name{ name }, ID1{ ID } {}

@@ -2,7 +2,6 @@
 // Created by AnDTN on 2/7/2023.
 //
 
-#include "../includes/Student.h"
 Student::Student() :first_name{ "Unknown" }, last_name{ "Unknown" }, date_of_birth{ "Unknown" },
                     ID{ "Unknown" }, address{ "Unknown" }, phone_num{ "Unknown" } {}
 

@@ -6,9 +6,6 @@
 #define STUDENT_MANAGEMENT_SYSTEM_SUBJECT_H
 
 
-#include <iostream>
-#include <ostream>
-#include <iomanip>
 
 using namespace std;
 

@@ -1,13 +1,12 @@
 //
 // Created by AnDTN on 2/7/2023.
 //
-#include <iostream>
-#include <list>
-#include <iterator>
-#include <algorithm>
+#include "includes/main.h"
+#include "src/GeneralFunction.cpp"
 #include "src/Subject.cpp"
 #include "src/Student.cpp"
-#include "src/VoidFunction.cpp"
+#include "src/SubjectFunctionfile.cpp"
+#include "src/StudentFunctionfile.cpp"
 
 using namespace std;
 
