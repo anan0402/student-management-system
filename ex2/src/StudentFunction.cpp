@@ -36,7 +36,7 @@ string identify() {
 }
 bool check_date_of_birth(const string &s){
     // 04/02/2000
-    if(!is_number(s.substr(0,1)) )
+//    if(!is_number(s.substr(0,1)) )
 }
 
 void GetStudentInfor(Student *s) {

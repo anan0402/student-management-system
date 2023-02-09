@@ -4,6 +4,7 @@
 
 #ifndef STUDENT_MANAGEMENT_SYSTEM_MAIN_H
 #define STUDENT_MANAGEMENT_SYSTEM_MAIN_H
+
 #include <iostream>
 #include <list>
 #include <iterator>
@@ -12,8 +13,8 @@
 #include <string>
 #include "GeneralFunction.h"
 #include "Subject.h"
+#include "Student.h"
 #include "SubjectFunctionfile.h"
 #include "Studentfunctionfile.h"
-#include "Student.h"
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_MAIN_H

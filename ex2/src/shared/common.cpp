@@ -5,6 +5,7 @@
 
 
 using namespace std;
+
 void display_menu() {
     cout << "1. Add the subject to the list" << endl;
     cout << "2. Modify the variables in a subject" << endl;
@@ -26,12 +27,13 @@ bool checkName(const string &name, bool is_multiple) {
     if (is_multiple && name.length() == 1)
         return false;
     for (char c: name) {
-        if (is_multiple ? !isalpha(c) && c != ' ' : !isalpha(c) && c ==' ') {
+        if (is_multiple ? !isalpha(c) && c != ' ' : !isalpha(c) && c == ' ') {
             return false;
         }
     }
     return true;
 }
+
 bool is_number(const string &s) {
     for (char c: s)
         if (!isdigit(c) || c == ' ')

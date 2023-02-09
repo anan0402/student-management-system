@@ -2,11 +2,11 @@
 // Created by AnDTN on 2/7/2023.
 //
 #include "includes/main.h"
-#include "src/GeneralFunction.cpp"
-#include "src/Subject.cpp"
-#include "src/Student.cpp"
-#include "src/SubjectFunctionfile.cpp"
-#include "src/StudentFunctionfile.cpp"
+#include "src/shared/common.cpp"
+#include "src/models/Subject.cpp"
+#include "src/models/Student.cpp"
+#include "src/SubjectFunction.cpp"
+#include "src/StudentFunction.cpp"
 
 using namespace std;
 
