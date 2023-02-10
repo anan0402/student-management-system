@@ -23,17 +23,9 @@ int main() {
     auto it = subject_list.begin();
     int choices;
     //subject
-    string name;
-    string ID1;
     Subject *usth_Subject{nullptr};
     usth_Subject = new Subject();
     //student
-    string first_name;
-    string last_name;
-    string date_of_birth;
-    string ID;
-    string address;
-    string phone_num;
     Student *usth_Student{nullptr};
     usth_Student = new Student();
     do {

@@ -27,7 +27,7 @@ bool checkName(const string &name, bool is_multiple) {
     if (is_multiple && name.length() == 1)
         return false;
     for (char c: name) {
-        if (is_multiple ? !isalpha(c) && c != ' ' : !isalpha(c) && c == ' ') {
+        if (is_multiple ? !isalpha(c) && c != ' ' : !isalpha(c) || c == ' ') {
             return false;
         }
     }

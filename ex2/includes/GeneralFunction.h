@@ -10,5 +10,4 @@ void display_menu();
 bool checkName(const string &name, bool is_multiple);
 bool is_number(const string &s);
 
-
 #endif //STUDENT_MANAGEMENT_SYSTEM_GENERALFUNCTION_H

@@ -6,10 +6,7 @@
 #define STUDENT_MANAGEMENT_SYSTEM_STUDENT_H
 
 
-#include <string>
-#include <ostream>
-#include <iomanip>
-#include <iostream>
+
 using namespace std;
 
 struct Student {
