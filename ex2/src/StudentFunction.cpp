@@ -21,8 +21,7 @@ string identify() {
   string id{};
   while (true) {
     cout << STUDENT_ID_ERROR << endl;
-    cout << "Enter the numeric part of ID (XXX): ";
-    cin >> id;
+    id = s_input("Enter the numeric part of ID (XXX): ");
     if (id.empty()) {
       cout << "The ID is requireable." << endl;
       break;
@@ -40,9 +39,7 @@ string identify() {
 }
 bool check_date_of_birth(const string &s) {
   if (s.length() != 10) {
-    cout
-        << "Date of birth is requireable and, the length of string need to be equal to 10."
-        << endl;
+    cout << DOB_ERROR << endl;
     return false;
   }
   for (char c : s)
@@ -66,37 +63,29 @@ void GetStudentInfor(Student *s) {
   string ID;
   string address;
   string phone_num;
-  cin.clear();
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   while (true) {
-    cout << "Enter the first name of student: ";
-    getline(cin, first_name);
+    first_name = s_input("Enter the first name of student: ");
     if (!first_name.empty() && checkName(first_name, false)) {
       break;
     } else {
-      cout
-          << "First name  is alphabet and requireable , preventing enter number, empty string and space. Please try again!"
-          << endl;
+      cout << FN_ERROR << endl;
     }
   }
   while (true) {
-    cout << "Enter the last name of student: ";
-    getline(cin, last_name);
+    last_name= s_input("Enter the last name of student: ");
     if (!last_name.empty() && checkName(last_name, true)) {
       break;
     } else {
-      cout
-          << "Last name is alphabet and requireable , preventing enter number, empty string and space. Please try again!"
-          << endl;
+      cout << LN_ERROR << endl;
     }
   }
   while (true) {
-    cout << "Enter the date of birth of student (follow date/month/years): ";
-    getline(cin, date_of_birth);
+    date_of_birth =
+        s_input("Enter the date of birth of student (follow date/month/years): ");
     if (check_date_of_birth(date_of_birth)) {
       break;
     } else {
-      cout << "Uncorrected format of date of birth. Please try again!" << endl;
+      cout <<SYSTEM_NOTICE <<"Uncorrected format of date of birth. Please try again!" << endl;
     }
   }
   ID = identify();
@@ -104,7 +93,7 @@ void GetStudentInfor(Student *s) {
   cin.ignore();
   getline(cin, address);
   if (address.empty()) {
-    cout << "The default value of address was used" << endl;
+    cout <<SYSTEM_NOTICE <<"The default value of address was used" << endl;
   }
   while (true) {
     cout << "Enter the phone number of student: ";
@@ -113,10 +102,9 @@ void GetStudentInfor(Student *s) {
       if (is_number(phone_num) && phone_num.length() == 10)
         break;
       else
-        cout << "Phone number is digit and the phone number need have 10 nums."
-             << endl;
+        cout <<PHONE_ERROR<< endl;
     } else {
-      cout << "The default value of address was used." << endl;
+      cout <<SYSTEM_NOTICE <<"The default value of address was used." << endl;
       break;
     }
   }

@@ -2,8 +2,6 @@
 // Created by AnDTN on 2/9/2023.
 //
 
-
-
 using namespace std;
 
 void display_menu() {
@@ -41,9 +39,14 @@ bool is_number(const string &s) {
   return true;
 }
 
-string input(string &&prompt) {
+string s_input(string &&prompt) {
   string value;
-  cout << prompt << endl;
+  cout << prompt;
   getline(cin, value);
   return value;
+}
+int i_input (){
+  string value ;
+  getline(cin,value);
+  return stoi(value);
 }

@@ -7,13 +7,8 @@ using namespace std;
 void GetSubjectInfor(Subject *s) {
   string name;
   string ID1;
-  cin.clear();
-  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-  cout << "Enter the name of subject: ";
-  getline(cin, name);
-  cout << "Enter the ID of subject: ";
-  getline(cin, ID1);
-
+  name = s_input("Enter the name of subject: ");
+  ID1 = s_input("Enter the ID of subject: ");
   Subject s1(name, ID1);
   *s = s1;
 }

@@ -30,7 +30,7 @@ int main() {
   usth_Student = new Student();
   do {
     display_menu();
-    cin >> choices;
+    choices = s_input();
     switch (choices) {
       case 1:cout << "Adding a new subject" << endl;
         GetSubjectInfor(usth_Subject);
