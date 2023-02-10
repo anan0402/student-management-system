@@ -2,9 +2,6 @@
 // Created by AnDTN on 2/8/2023.
 //
 
-
-
-
 using namespace std;
 
 void GetSubjectInfor(Subject *s) {

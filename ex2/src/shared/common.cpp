@@ -40,3 +40,10 @@ bool is_number(const string &s) {
             return false;
     return true;
 }
+
+string input(string &&prompt){
+    string value;
+    cout<<prompt<<endl;
+    getline(cin,value);
+    return value;
+}
