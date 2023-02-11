@@ -31,42 +31,42 @@ bool Student::operator==(const Student &rhs) const {
   return (this->ID == rhs.ID);
 }
 
-void Student::set_FirstName(string first_name) {
+void Student::set_FirstName(string first_name) noexcept {
   this->first_name = first_name;
 }
 string Student::get_FirstName() const {
   return first_name;
 }
 
-void Student::set_LastName(string last_name) {
+void Student::set_LastName(string last_name) noexcept{
   this->last_name = last_name;
 }
 string Student::get_LastName() const {
   return last_name;
 }
 
-void Student::set_DateOfBirth(string date_of_birth) {
+void Student::set_DateOfBirth(string date_of_birth) noexcept{
   this->date_of_birth = date_of_birth;
 }
 string Student::get_DateOfBirth() const {
   return date_of_birth;
 }
 
-void Student::set_ID(string ID) {
+void Student::set_ID(string ID) noexcept{
   this->ID = ID;
 }
 string Student::get_ID() const {
   return ID;
 }
 
-void Student::set_address(string address) {
+void Student::set_address(string address) noexcept{
   this->address = address;
 }
 string Student::get_address() const {
   return address;
 }
 
-void Student::set_PhoneNum(string phone_num) {
+void Student::set_PhoneNum(string phone_num) noexcept{
   this->phone_num = phone_num;
 }
 string Student::get_PhoneNum() const {

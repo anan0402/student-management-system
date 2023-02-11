@@ -7,6 +7,7 @@
 #include "src/models/Student.cpp"
 #include "src/SubjectFunction.cpp"
 #include "src/StudentFunction.cpp"
+#include "src/models/Department.cpp"
 
 using namespace std;
 
@@ -28,9 +29,12 @@ int main() {
   //student
   Student *usth_Student{nullptr};
   usth_Student = new Student();
+  string name_department;
+  name_department = sinput("Enter the name of department: ");
+  Department department{name_department, {subject_list}};
   do {
     display_menu();
-    choices = s_input();
+    choices = ninput();
     switch (choices) {
       case 1:cout << "Adding a new subject" << endl;
         GetSubjectInfor(usth_Subject);
@@ -43,11 +47,23 @@ int main() {
         }
         break;
       case 2:cout << "Modify" << endl;
+        GetIDofStudent(usth_Student);
+        it1 = find(student_list.begin(), student_list.end(), *usth_Student);
+        if (it1 != student_list.end()) {
+          modify(usth_Student);
+          student_list.insert(it1,*usth_Student);
+          student_list.erase(it1);
+          cout << SYSTEM_NOTICE << "The new student was added" << endl;
+        } else {
+          cout << "The subject dont exist!" << endl;
+        }
+
         break;
-      case 3:display(subject_list);
+      case 3:cout << department.name << endl;
+        display(subject_list);
         break;
       case 4:cout << "Delete the subject" << endl;
-        GetSubjectInfor(usth_Subject);
+        GetIDofSubject(usth_Subject);
         it = find(subject_list.begin(), subject_list.end(), *usth_Subject);
         if (it != subject_list.end()) {
           subject_list.erase(it);
@@ -61,7 +77,7 @@ int main() {
         it1 = find(student_list.begin(), student_list.end(), *usth_Student);
         if (it1 == student_list.end()) {
           student_list.emplace_back(*usth_Student);
-          cout << SYSTEM_NOTICE <<"The new student was added" << endl;
+          cout << SYSTEM_NOTICE << "The new student was added" << endl;
         } else {
           cout << "The ID of student already exist. Please try again!" << endl;
         }
@@ -86,7 +102,7 @@ int main() {
         break;
       case 11:cout << "Goodbye" << endl;;
         break;
-      default:cout << "Unkown sellection, please try again" << endl;
+      default:cout << "Unknown selection, please try again" << endl;
         break;
     }
 

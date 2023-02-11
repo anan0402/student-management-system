@@ -26,3 +26,13 @@ Bước 5: Nhấn Enter
 4. Click button "New pull request"
 5. Chọn base: code-tracking <- compare: main
 6. Click "Create pull request"
+
+KeyboardS:
+ctrl alt l
+shift fn f6
+ctrl shift f
+
+Note:
+the unknown default value not be used 
+Viet hoa Chu cai dau
+

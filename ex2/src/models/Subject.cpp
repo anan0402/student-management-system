@@ -9,7 +9,7 @@ bool Subject::operator<(const Subject &rhs) {
   return this->name < rhs.name;
 }
 bool Subject::operator==(const Subject &rhs) const {
-  return (this->name == rhs.name && this->ID1 == rhs.ID1);
+  return (this->ID1 == rhs.ID1);
 }
 void Subject::set_name(string name) {
   this->name = name;

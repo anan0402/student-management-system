@@ -8,5 +8,5 @@
 using namespace std;
 void display(const list<Subject> &l);
 void GetSubjectInfor(Subject *s);
-
+void GetIDofSubject(Subject *s);
 #endif //STUDENT_MANAGEMENT_SYSTEM_SUBJECTFUNCTIONFILE_H

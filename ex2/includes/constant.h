@@ -10,6 +10,7 @@
 #define FN_ERROR "First name  is alphabet and requireable , preventing enter number, empty string and space. Please try again!"
 #define LN_ERROR "Last name is alphabet and requireable , preventing enter number, empty string and space. Please try again!"
 #define PHONE_ERROR "Phone number is digit and the phone number need have 10 nums."
+#define SUBJECT_NAME_ERROR "Name  is alphabet and requireable , preventing enter number, empty string and space. Please try again!"
 #define SYSTEM_NOTICE "[#]~"
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_EX2_INCLUDES_CONSTANT_H_

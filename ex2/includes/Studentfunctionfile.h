@@ -11,5 +11,6 @@ string identify();
 void GetStudentInfor(Student *s);
 void display(const list<Student> &l);
 void GetIDofStudent(Student *s);
+void modify(Student*s);
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_STUDENTFUNCTIONFILE_H

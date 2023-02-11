@@ -39,14 +39,14 @@ bool is_number(const string &s) {
   return true;
 }
 
-string s_input(string &&prompt) {
+string sinput(string &&prompt) {
   string value;
   cout << prompt;
   getline(cin, value);
   return value;
 }
-int i_input (){
-  string value ;
-  getline(cin,value);
+int ninput() {
+  string value;
+  getline(cin, value);
   return stoi(value);
 }

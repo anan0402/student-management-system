@@ -18,5 +18,5 @@
 #include "constant.h"
 #include "SubjectFunctionfile.h"
 #include "Studentfunctionfile.h"
-
+#include "Department.h"
 #endif //STUDENT_MANAGEMENT_SYSTEM_MAIN_H
