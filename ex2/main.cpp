@@ -29,24 +29,23 @@ int main() {
   //student
   Student *usth_Student{nullptr};
   usth_Student = new Student();
-  string name_department;
-  name_department = sinput("Enter the name of department: ");
-  Department department{name_department, {subject_list}};
+  Department fst {"FST Department", {subject_list}};
+  Department ict {"ICT Department", {subject_list}};
   do {
     display_menu();
     choices = ninput();
     switch (choices) {
-      case 1:cout << "Adding a new subject" << endl;
+      case 1:cout << SYSTEM_NOTICE <<"Adding a new subject" << endl;
         GetSubjectInfor(usth_Subject);
         it = find(subject_list.begin(), subject_list.end(), *usth_Subject);
         if (it == subject_list.end()) {
           subject_list.emplace_back(*usth_Subject);
-          cout << "The new subject was added!" << endl;
+          cout << SYSTEM_NOTICE <<"The new subject was added!" << endl;
         } else {
-          cout << "The subject already exist" << endl;
+          cout << SYSTEM_NOTICE <<"The subject already exist" << endl;
         }
         break;
-      case 2:cout << "Modify" << endl;
+      case 2:cout << SYSTEM_NOTICE <<"Modify" << endl;
         GetIDofSubject(usth_Subject);
         it = find(subject_list.begin(), subject_list.end(), *usth_Subject);
         if(it != subject_list.end()){
@@ -54,27 +53,28 @@ int main() {
           cout << SYSTEM_NOTICE << "The subject was modified" << endl;
         }
         break;
-      case 3:cout << department.name << endl;
-        display(subject_list);
+      case 3:
+        display(fst);
+        display(ict);
         break;
-      case 4:cout << "Delete the subject" << endl;
+      case 4:cout << SYSTEM_NOTICE <<"Delete the subject" << endl;
         GetIDofSubject(usth_Subject);
         it = find(subject_list.begin(), subject_list.end(), *usth_Subject);
         if (it != subject_list.end()) {
           subject_list.erase(it);
-          cout << "Successfully delete" << endl;
+          cout << SYSTEM_NOTICE <<"Successfully delete" << endl;
         } else {
-          cout << "The subject dont exist!" << endl;
+          cout << SYSTEM_NOTICE <<"The subject dont exist!" << endl;
         }
         break;
-      case 5:cout << "Adding a new student" << endl;
+      case 5:cout <<SYSTEM_NOTICE << "Adding a new student" << endl;
         GetStudentInfor(usth_Student);
         it1 = find(student_list.begin(), student_list.end(), *usth_Student);
         if (it1 == student_list.end()) {
           student_list.emplace_back(*usth_Student);
           cout << SYSTEM_NOTICE << "The new student was added" << endl;
         } else {
-          cout << "The ID of student already exist. Please try again!" << endl;
+          cout << SYSTEM_NOTICE <<"The ID of student already exist. Please try again!" << endl;
         }
         break;
       case 6:cout << "Modify" << endl;
@@ -84,32 +84,34 @@ int main() {
           modify(&*it1);
           cout << SYSTEM_NOTICE << "The student was modified" << endl;
         } else {
-          cout << "The student dont exist!" << endl;
+          cout << SYSTEM_NOTICE <<"The student dont exist!" << endl;
         }
         break;
       case 7:display(student_list);
         break;
-      case 8:cout << "Delete a new student" << endl;
+      case 8:cout << SYSTEM_NOTICE <<"Delete a new student" << endl;
         GetIDofStudent(usth_Student);
         it1 = find(student_list.begin(), student_list.end(), *usth_Student);
         if (it1 != student_list.end()) {
           student_list.erase(it1);
-          cout << "Successfully delete" << endl;
+          cout << SYSTEM_NOTICE <<"Successfully delete" << endl;
         } else {
-          cout << "Student dont exist" << endl;
+          cout <<SYSTEM_NOTICE << "Student dont exist" << endl;
         }
         break;
       case 9:subject_list.sort();
         break;
       case 10:student_list.sort();
         break;
-      case 11:cout << "Goodbye" << endl;;
+      case 11:cout <<SYSTEM_NOTICE << "Goodbye" << endl;;
         break;
-      default:cout << "Unknown selection, please try again" << endl;
+      default:cout << SYSTEM_NOTICE <<"Unknown selection, please try again" << endl;
         break;
     }
 
   } while (choices != 11);
+  delete usth_Subject;
+  delete usth_Student;
   return 0;
 
 }

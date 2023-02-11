@@ -24,15 +24,17 @@ void GetSubjectInfor(Subject *s) {
   Subject s1(name, ID1);
   *s = s1;
 }
-void display(const list<Subject> &l) {
+void display( const Department &l) {
+  cout<<l.name<<endl;
   cout << setw(10) << left << "ID" << setw(50) << left << "Name of subject"
        << endl;
   cout << setw(60) << setfill('-') << "" << endl;
   cout << setfill(' ') << endl;
-  for (const auto &elem : l) {
-    cout << elem << endl;
-  }
-  cout << endl;
+  for (const auto &list : l.department)
+    for(const auto &elem: list)
+      cout << elem << endl;
+  cout<<endl;
+
 }
 void GetIDofSubject(Subject *s){
   string name;
@@ -80,9 +82,9 @@ void modify(Subject*s){
         }
         s->set_id(ID1);
         break;
-      case 3:cout<<"Goodbye"<<endl;
+      case 3:cout<<SYSTEM_NOTICE <<"Goodbye"<<endl;
         break;
-      default:cout<<"Wrong selection. Please try again"<<endl;
+      default:cout<<SYSTEM_NOTICE <<"Wrong selection. Please try again"<<endl;
         break;
     }
   } while (choice != 3);

@@ -36,6 +36,8 @@ string identify() {
   return temp;
 }
 bool check_date_of_birth(const string &s) {
+  // 04/02/2000
+
   if (s.length() != 10) {
     cout << DOB_ERROR << endl;
     return false;
@@ -43,14 +45,16 @@ bool check_date_of_birth(const string &s) {
   for (char c : s)
     if (!isdigit(c) && c != '/' || c == ' ')
       return false;
-  if (stoi(s.substr(0, 2)) < 0 || stoi(s.substr(0, 2)) > 31) {
+  if (stoi(s.substr(0, 2)) < 1 || stoi(s.substr(0, 2)) > 31) {
     cout <<SYSTEM_NOTICE << "Day is not larger than 31" << endl;
     return false;
   }
-  if (stoi(s.substr(3, 2)) < 0 || stoi(s.substr(3, 2)) > 12) {
+  if (stoi(s.substr(3, 2)) < 1 || stoi(s.substr(3, 2)) > 12) {
     cout <<SYSTEM_NOTICE << "Moth is not larger than 12" << endl;
     return false;
   }
+  if(is_number(s.substr(0,3)) && is_number(s.substr(3,3)))
+    return false;
   return true;
 }
 
@@ -197,10 +201,10 @@ void modify( Student *s){
         s->set_PhoneNum(phone_num);
         break;
       case 7:
-        cout<<"Good bye"<<endl;
+        cout<<SYSTEM_NOTICE <<"Good bye"<<endl;
         break;
       default:
-        cout<<"The selection is not correct. Please try again."<<endl;
+        cout<<SYSTEM_NOTICE <<"The selection is not correct. Please try again."<<endl;
         break;
     }
   } while (choice != 7);

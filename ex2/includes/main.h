@@ -16,7 +16,8 @@
 #include "Subject.h"
 #include "Student.h"
 #include "constant.h"
+#include "Department.h"
 #include "SubjectFunctionfile.h"
 #include "Studentfunctionfile.h"
-#include "Department.h"
+
 #endif //STUDENT_MANAGEMENT_SYSTEM_MAIN_H
