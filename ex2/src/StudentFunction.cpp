@@ -89,7 +89,7 @@ void GetStudentInfor(Student *s) {
   ID = identify();
   address = sinput("Enter the address of student: ");
   if (address.empty()) {
-    cout <<SYSTEM_NOTICE <<"The default value of address was used" << endl;
+    cout <<SYSTEM_NOTICE <<"The address is empty." << endl;
   }
   while (true) {
     phone_num= sinput("Enter the phone number of student: ");
@@ -99,7 +99,7 @@ void GetStudentInfor(Student *s) {
       else
         cout <<PHONE_ERROR<< endl;
     } else {
-      cout <<SYSTEM_NOTICE <<"The default value of address was used." << endl;
+      cout <<SYSTEM_NOTICE <<"The phone number is empty." << endl;
       break;
     }
   }
@@ -118,10 +118,91 @@ void GetIDofStudent(Student *s) {
   Student st1(first_name, last_name, date_of_birth, ID, address, phone_num);
   *s = st1;
 }
+void student_display(){
+  cout<<"1. Modify first name"<<endl;
+  cout<<"2. Modify last name"<<endl;
+  cout<<"3. Modify date of birth"<<endl;
+  cout<<"4. Modify the ID"<<endl;
+  cout<<"5. Modify the address"<<endl;
+  cout<<"6. Modify the phone_num"<<endl;
+  cout<<"7. Quit"<<endl;
+  cout<<"========================"<<endl;
+  cout<<"Enter your choices: ";
+}
+void modify( Student *s){
+  string first_name;
+  string last_name;
+  string date_of_birth;
+  string ID;
+  string address;
+  string phone_num;
+  int choice;
+  do{
+    student_display();
+    choice = ninput();
+    switch (choice) {
+      case 1:
+        while (true) {
+          first_name = sinput("Enter the first name of student: ");
+          if (!first_name.empty() && checkName(first_name, false)) {
+            break;
+          } else {
+            cout << FN_ERROR << endl;
+          }
+        }
+        s->set_FirstName(first_name);
+        break;
+      case 2:while (true) {
+          last_name= sinput("Enter the last name of student: ");
+          if (!last_name.empty() && checkName(last_name, true)) {
+            break;
+          } else {
+            cout << LN_ERROR << endl;
+          }
+        }
+        s->set_LastName(last_name);
+        break;
+      case 3:while (true) {
+          date_of_birth =
+              sinput("Enter the date of birth of student (follow date/month/years): ");
+          if (check_date_of_birth(date_of_birth)) {
+            break;
+          } else {
+            cout <<SYSTEM_NOTICE <<"Uncorrected format of date of birth. Please try again!" << endl;
+          }
+        }
+        s->set_DateOfBirth(date_of_birth);
+        break;
+      case 4:ID = identify();
+        s->set_ID(ID);
+        break;
+      case 5:address = sinput("Enter the address of student: ");
+        if (address.empty()) {
+          cout <<SYSTEM_NOTICE <<"The address is empty." << endl;
+        }
+        s->set_address(address);
+        break;
+      case 6:while (true) {
+          phone_num= sinput("Enter the phone number of student: ");
+          if (!phone_num.empty()) {
+            if (is_number(phone_num) && phone_num.length() == 10)
+              break;
+            else
+              cout <<PHONE_ERROR<< endl;
+          } else {
+            cout <<SYSTEM_NOTICE <<"The phone number is empty." << endl;
+            break;
+          }
+        }
+        s->set_PhoneNum(phone_num);
+        break;
+      case 7:
+        cout<<"Good bye"<<endl;
+        break;
+      default:
+        cout<<"The selection is not correct. Please try again."<<endl;
+        break;
+    }
+  } while (choice != 7);
 
-void modify(Student*s){
- string first_name;
-  first_name = sinput("Enter the modify name: ");
-  s->set_FirstName(first_name);
-  cout<<s->first_name<<endl;
 }

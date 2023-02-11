@@ -41,23 +41,18 @@ int main() {
         it = find(subject_list.begin(), subject_list.end(), *usth_Subject);
         if (it == subject_list.end()) {
           subject_list.emplace_back(*usth_Subject);
-          cout << "The <new subject was added!" << endl;
+          cout << "The new subject was added!" << endl;
         } else {
           cout << "The subject already exist" << endl;
         }
         break;
       case 2:cout << "Modify" << endl;
-        GetIDofStudent(usth_Student);
-        it1 = find(student_list.begin(), student_list.end(), *usth_Student);
-        if (it1 != student_list.end()) {
-          modify(usth_Student);
-          student_list.insert(it1,*usth_Student);
-          student_list.erase(it1);
-          cout << SYSTEM_NOTICE << "The new student was added" << endl;
-        } else {
-          cout << "The subject dont exist!" << endl;
+        GetIDofSubject(usth_Subject);
+        it = find(subject_list.begin(), subject_list.end(), *usth_Subject);
+        if(it != subject_list.end()){
+          modify(&*it);
+          cout << SYSTEM_NOTICE << "The subject was modified" << endl;
         }
-
         break;
       case 3:cout << department.name << endl;
         display(subject_list);
@@ -83,6 +78,14 @@ int main() {
         }
         break;
       case 6:cout << "Modify" << endl;
+        GetIDofStudent(usth_Student);
+        it1 = find(student_list.begin(), student_list.end(), *usth_Student);
+        if (it1 != student_list.end()) {
+          modify(&*it1);
+          cout << SYSTEM_NOTICE << "The student was modified" << endl;
+        } else {
+          cout << "The student dont exist!" << endl;
+        }
         break;
       case 7:display(student_list);
         break;
