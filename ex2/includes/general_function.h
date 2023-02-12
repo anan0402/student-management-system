@@ -6,10 +6,10 @@
 #define STUDENT_MANAGEMENT_SYSTEM_GENERALFUNCTION_H
 
 using namespace std;
-void display_menu();
+void displayMenu();
 bool checkName(const string &name, bool is_multiple);
-bool is_number(const string &s);
-string sinput(string &prompt);
+bool isNumber(const string &s);
+string sinput(string &&prompt);
 int ninput();
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_GENERALFUNCTION_H

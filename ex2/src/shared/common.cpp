@@ -4,17 +4,17 @@
 
 using namespace std;
 
-void display_menu() {
-  cout << "1. Add the subject to the list" << endl;
-  cout << "2. Modify the variables in a subject" << endl;
-  cout << "3. Display the subject in the list" << endl;
-  cout << "4. Delete the subject in the list" << endl;
-  cout << "5. Add the student to the list" << endl;
-  cout << "6. Modify the variables in a student" << endl;
-  cout << "7. Display the student in the list" << endl;
-  cout << "8. Delete the student in the list" << endl;
-  cout << "9. Sort the subject by name (increasing)" << endl;
-  cout << "10. Sort the student by name (increasing)" << endl;
+void displayMenu() {
+  cout << "1. Add the Subject to the list" << endl;
+  cout << "2. Modify the variables in a Subject" << endl;
+  cout << "3. Display the Subject in the list" << endl;
+  cout << "4. Delete the Subject in the list" << endl;
+  cout << "5. Add the Student to the list" << endl;
+  cout << "6. Modify the variables in a Student" << endl;
+  cout << "7. Display the Student in the list" << endl;
+  cout << "8. Delete the Student in the list" << endl;
+  cout << "9. Sort the Subject by name (increasing)" << endl;
+  cout << "10. Sort the Student by name (increasing)" << endl;
   cout << "11. Quit" << endl;
   cout << setw(50) << setfill('=') << "" << endl;
   cout << setfill(' ') << endl;
@@ -32,7 +32,7 @@ bool checkName(const string &name, bool is_multiple) {
   return true;
 }
 
-bool is_number(const string &s) {
+bool isNumber(const string &s) {
   for (char c : s)
     if (!isdigit(c) || c == ' ')
       return false;

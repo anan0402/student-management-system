@@ -12,12 +12,11 @@
 #include <limits>
 #include <string>
 #include <iomanip>
-#include "GeneralFunction.h"
-#include "Subject.h"
-#include "Student.h"
+#include "general_function.h"
+#include "subject.h"
+#include "student.h"
 #include "constant.h"
-#include "Department.h"
-#include "SubjectFunctionfile.h"
-#include "Studentfunctionfile.h"
+#include "subject_function.h"
+#include "student_function.h"
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_MAIN_H

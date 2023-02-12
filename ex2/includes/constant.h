@@ -5,12 +5,15 @@
 #ifndef STUDENT_MANAGEMENT_SYSTEM_EX2_INCLUDES_CONSTANT_H_
 #define STUDENT_MANAGEMENT_SYSTEM_EX2_INCLUDES_CONSTANT_H_
 
-#define STUDENT_ID_ERROR "The student ID have the format (BA9-XXX). You just need to enter the numeric part of ID."
+#define STUDENT_ID_ERROR "The Student ID have the format (BA9-XXX). You just need to enter the numeric part of ID."
 #define DOB_ERROR "Date of birth is requireable and, the length of string need to be equal to 10."
 #define FN_ERROR "First name  is alphabet and requireable , preventing enter number, empty string and space. Please try again!"
 #define LN_ERROR "Last name is alphabet and requireable , preventing enter number, empty string and space. Please try again!"
 #define PHONE_ERROR "Phone number is digit and the phone number need have 10 nums."
 #define SUBJECT_NAME_ERROR "Name  is alphabet and requireable , preventing enter number, empty string and space. Please try again!"
+#define SUBJECT_DEPARTMENT_ERROR "Department  is alphabet and requireable , preventing enter number, empty string and space. Please try again!"
+#define ICT_DEPARTMENT "ICT"
+#define FST_DEPARTMENT "FST"
 #define SYSTEM_NOTICE "[#]~"
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_EX2_INCLUDES_CONSTANT_H_

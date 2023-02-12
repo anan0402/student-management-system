@@ -10,9 +10,10 @@ using namespace std;
 struct Subject {
   friend ostream &operator<<(ostream &os, const Subject &rhs);
   string name;
-  string ID1;
+  string id;
+  string department;
   Subject();
-  Subject(string name, string ID);
+  Subject(string name, string ID, string department);
   bool operator<(const Subject &rhs);
   bool operator==(const Subject &rhs) const;
 
@@ -20,6 +21,7 @@ struct Subject {
   string get_name() const;
   void set_id(string ID1);
   string get_id() const;
+  void set_department() const;
 };
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_SUBJECT_H
