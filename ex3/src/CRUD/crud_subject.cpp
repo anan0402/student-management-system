@@ -2,7 +2,7 @@
 // Created by AnDTN on 2/15/2023.
 //
 using namespace std;
-void CrudSubjectRegister::crudSubjectRegisterRun(){
+void CrudSubject::crudSubjectRun(){
   int choice;
   do{
     displayCrudMenu();

@@ -1,0 +1,11 @@
+//
+// Created by AnDTN on 2/15/2023.
+//
+
+#ifndef STUDENT_MANAGEMENT_SYSTEM_EX3_INCLUDES_CRUDE_SUBJECT_H_
+#define STUDENT_MANAGEMENT_SYSTEM_EX3_INCLUDES_CRUDE_SUBJECT_H_
+class CrudSubject{
+ public:
+  static void crudSubjectRun();
+};
+#endif //STUDENT_MANAGEMENT_SYSTEM_EX3_INCLUDES_CRUDE_SUBJECT_H_

@@ -3,7 +3,18 @@
 //
 
 using namespace std;
-void disPlayMenu() {
+void displayCrudMenu(){
+  cout<<THE_CRUD_MENU<<endl;
+  cout<<CREATE<<endl;
+  cout<<DISPLAY<<endl;
+  cout<<UPDATE<<endl;
+  cout<<DELETE<<endl;
+  cout<<QUIT<<endl;
+  cout << setw(50) << setfill('=') << "" << endl;
+  cout << setfill(' ') << endl;
+  cout << SELECTIONS;
+}
+void displayMenu() {
   cout << THE_MENU << endl;
   cout << CHOICE_1 << endl;
   cout << CHOICE_2 << endl;

@@ -7,7 +7,7 @@
 
 class Application {
  public:
-  static void main();
+  static void run();
 };
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_EX3_APPLICATION_H_

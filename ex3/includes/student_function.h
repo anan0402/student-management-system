@@ -4,9 +4,7 @@
 
 #ifndef STUDENT_MANAGEMENT_SYSTEM_EX3_SRC_STUDENT_FUNCTION_H_
 #define STUDENT_MANAGEMENT_SYSTEM_EX3_SRC_STUDENT_FUNCTION_H_
+void displayStudent(const vector<Student> &vec);
 
-class StudentFunction {
-
-};
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_EX3_SRC_STUDENT_FUNCTION_H_

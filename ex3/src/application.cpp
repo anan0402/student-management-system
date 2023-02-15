@@ -3,21 +3,21 @@
 //
 
 using namespace std;
-void Application::main(){
+void Application::run(){
   int choices;
   do {
-    disPlayMenu();
+    displayMenu();
     choices = nInput();
     switch (choices) {
-      case 1:
+      case 1:loginSystem();
         break;
       case 2:
         break;
-      case 3:
+      case 3:CrudSubject::crudSubjectRun();
         break;
-      case 4:
+      case 4:CrudStudent::crudStudentRun();
         break;
-      case 5:
+      case 5:CrudSubjectRegister::crudSubjectRegisterRun();
         break;
       case 6:sort(subject_vec.begin(), subject_vec.end());
         break;

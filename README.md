@@ -24,7 +24,7 @@ Bước 5: Nhấn Enter
    Student-management-system (https://github.com/anan0402/Student-management-system/tree/code-tracking)
 3. Click Pull requests
 4. Click button "New pull request"
-5. Chọn base: code-tracking <- compare: main
+5. Chọn base: code-tracking <- compare: run
 6. Click "Create pull request"
 
 KeyboardS:
