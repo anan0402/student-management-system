@@ -2,6 +2,8 @@
 // Created by AnDTN on 2/7/2023.
 //
 
+#include "../../../ex3/includes/student.h"
+
 Student::Student() : firstName{"Unknown"},
                      lastName{"Unknown"},
                      dateOfBirth{"Unknown"},
@@ -69,6 +71,7 @@ string Student::getAddress() const {
 void Student::setPhoneNum(string phone_num) noexcept {
   this->phoneNum = phone_num;
 }
+
 string Student::getPhoneNum() const {
   return phoneNum;
 }

@@ -33,4 +33,13 @@ shift fn f6
 ctrl shift f
 
 Note:
-
+nó sẽ ra 1 cái menu mới
+1. Create
+2. Display
+3. Update
+4. Delete
+   Sen đại ca 🤠
+   create là subjectRegister có nghĩa là tạo ra 1 lớp học mới trong trường
+   Sen đại ca 🤠
+   Lê Anh Tú
+   lớp học này có list student đăng ký, có tên và có mã lớp học
