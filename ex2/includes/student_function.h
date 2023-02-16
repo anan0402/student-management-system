@@ -12,6 +12,6 @@ void getStudentInfor(Student *s);
 void display(const list<Student> &l);
 void getStudentID(Student *s);
 void modify(Student *s);
-void studentDisplay();
+void studentModify();
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_STUDENTFUNCTIONFILE_H

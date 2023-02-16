@@ -37,16 +37,16 @@ string identify() {
 }
 bool checkDateOfBirth(const string &s) {
   // 04/02/2000
-  cout<<DOB_ANNOUNCEMENT<<endl;
+  cout << DOB_ANNOUNCEMENT << endl;
   if (s.length() != 10) {
-    cout << SYSTEM_NOTICE<<WRONG_FORMAT << endl;
+    cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
     return false;
   }
   for (char c : s)
     if (!isdigit(c) && c != '/' || c == ' ')
       return false;
   if (stoi(s.substr(0, 2)) < 1 || stoi(s.substr(0, 2)) > 31) {
-    cout << SYSTEM_NOTICE << DAY_ERROR  << endl;
+    cout << SYSTEM_NOTICE << DAY_ERROR << endl;
     return false;
   }
   if (stoi(s.substr(3, 2)) < 1 || stoi(s.substr(3, 2)) > 12) {
@@ -65,22 +65,23 @@ void getStudentInfor(Student *s) {
   string id;
   string address;
   string phone_num;
+  Departments department;
   while (true) {
-    cout<<FN_ANNOUNCEMENT<<endl;
+    cout << FN_ANNOUNCEMENT << endl;
     first_name = sInput(FN_INPUT);
     if (!first_name.empty() && checkName(first_name, false)) {
       break;
     } else {
-      cout << SYSTEM_NOTICE<< WRONG_FORMAT << endl;
+      cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
     }
   }
   while (true) {
-    cout<<LN_ANNOUNCEMENT<<endl;
+    cout << LN_ANNOUNCEMENT << endl;
     last_name = sInput(LN_INPUT);
     if (!last_name.empty() && checkName(last_name, true)) {
       break;
     } else {
-      cout << SYSTEM_NOTICE <<WRONG_FORMAT << endl;
+      cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
     }
   }
   while (true) {
@@ -101,13 +102,28 @@ void getStudentInfor(Student *s) {
       if (isNumber(phone_num) && phone_num.length() == 10)
         break;
       else
-        cout << SYSTEM_NOTICE<<WRONG_FORMAT << endl;
+        cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
     } else {
       cout << SYSTEM_NOTICE << EMPTY << endl;
       break;
     }
   }
-  Student st1(first_name, last_name, dob, id, address, phone_num, Departments(0));
+  while (true) {
+    cout << DEPARTMENT_INPUT;
+    department = static_cast<Departments>(nInput());
+    if (isValidDepartment(department))
+      break;
+    else
+      cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
+  }
+
+  Student st1(first_name,
+              last_name,
+              dob,
+              id,
+              address,
+              phone_num,
+              Departments(department));
   *s = st1;
 }
 
@@ -119,19 +135,15 @@ void getStudentID(Student *s) {
   string address;
   string phone_num;
   id = identify();
-  Student st1(first_name, last_name, dob, id, address, phone_num, Departments(0));
+  Student
+      st1(first_name, last_name, dob, id, address, phone_num, Departments(0));
   *s = st1;
 }
-void studentDisplay() {
-  cout << "1. Modify first name" << endl;
-  cout << "2. Modify last name" << endl;
-  cout << "3. Modify date of birth" << endl;
-  cout << "4. Modify the ID" << endl;
-  cout << "5. Modify the address" << endl;
-  cout << "6. Modify the phoneNum" << endl;
-  cout << "7. Quit" << endl;
-  cout << "========================" << endl;
-  cout << "Enter your choices: ";
+void studentModify() {
+  cout << THE_MODIFY_MENU << endl;
+  cout << setw(50) << setfill('=') << "" << endl;
+  cout << setfill(' ') << endl;
+  cout << SELECTIONS;
 }
 void modify(Student *s) {
   string first_name;
@@ -140,19 +152,20 @@ void modify(Student *s) {
   string id;
   string address;
   string phone_num;
+  Departments department;
   int choice;
   do {
-    studentDisplay();
+    studentModify();
     choice = nInput();
     switch (choice) {
       case 1:
-        while (true){
-          cout<<FN_ANNOUNCEMENT<<endl;
+        while (true) {
+          cout << FN_ANNOUNCEMENT << endl;
           first_name = sInput(FN_INPUT);
           if (!first_name.empty() && checkName(first_name, false)) {
             break;
           } else {
-            cout << SYSTEM_NOTICE<<WRONG_FORMAT << endl;
+            cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
           }
         }
         s->setFirstName(first_name);
@@ -160,18 +173,17 @@ void modify(Student *s) {
       case 2:
         while (true) {
           last_name = sInput(LN_INPUT);
-          if (!last_name.empty() && checkName(last_name, true)) {
+          if (!last_name.empty() && checkName(last_name, true))
             break;
-          } else {
-            cout << SYSTEM_NOTICE<<WRONG_FORMAT<< endl;
-          }
+           else
+            cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
         }
         s->setLastName(last_name);
         break;
       case 3:
         while (true) {
-          cout<<DOB_ANNOUNCEMENT<<endl;
-          dob =sInput(DOB_INPUT);
+          cout << DOB_ANNOUNCEMENT << endl;
+          dob = sInput(DOB_INPUT);
           if (checkDateOfBirth(dob)) {
             break;
           } else {
@@ -193,13 +205,13 @@ void modify(Student *s) {
         break;
       case 6:
         while (true) {
-          cout<<PHONE_ANNOUNCEMENT<<endl;
+          cout << PHONE_ANNOUNCEMENT << endl;
           phone_num = sInput(PHONE_INPUT);
           if (!phone_num.empty()) {
             if (isNumber(phone_num) && phone_num.length() == 10)
               break;
             else
-              cout << SYSTEM_NOTICE<<WRONG_FORMAT << endl;
+              cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
           } else {
             cout << SYSTEM_NOTICE << EMPTY << endl;
             break;
@@ -207,12 +219,23 @@ void modify(Student *s) {
         }
         s->setPhoneNum(phone_num);
         break;
-      case 7:cout << SYSTEM_NOTICE << QUIT_SYSTEM << endl;
+      case 7:
+        while (true){
+          cout << DEPARTMENT_INPUT;
+          department = static_cast<Departments>(nInput());
+          if (isValidDepartment(department))
+            break;
+          else
+            cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
+        }
+        s->setDepartment(department);
+        break;
+      case 8:cout << SYSTEM_NOTICE << QUIT_SYSTEM << endl;
         break;
       default:
         cout << SYSTEM_NOTICE
              << UNKNOWN_SELECTION << endl;
         break;
     }
-  } while (choice != 7);
+  } while (choice != 8);
 }

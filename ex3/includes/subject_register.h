@@ -6,6 +6,7 @@
 #define STUDENT_MANAGEMENT_SYSTEM_EX3_SUBJECT_REGISTER_H_
 
 class SubjectRegister {
+  friend ostream &operator<<(ostream &os, const SubjectRegister &rhs);
  private:
   Subject subject;
   vector<Student>vec;
@@ -15,7 +16,6 @@ class SubjectRegister {
   SubjectRegister();
   SubjectRegister(Subject subject, vector<Student>vec,string code, string date);
   ~SubjectRegister() = default;
-
 };
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_EX3_SUBJECT_REGISTER_H_

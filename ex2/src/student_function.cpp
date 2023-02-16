@@ -124,7 +124,7 @@ void getStudentID(Student *s) {
   Student st1(first_name, last_name, date_of_birth, ID, address, phone_num);
   *s = st1;
 }
-void studentDisplay() {
+void studentModify() {
   cout << "1. Modify first name" << endl;
   cout << "2. Modify last name" << endl;
   cout << "3. Modify date of birth" << endl;
@@ -144,7 +144,7 @@ void modify(Student *s) {
   string phone_num;
   int choice;
   do {
-    studentDisplay();
+    studentModify();
     choice = ninput();
     switch (choice) {
       case 1:

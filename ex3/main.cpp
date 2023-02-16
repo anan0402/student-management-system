@@ -20,7 +20,7 @@
 #include "src/CRUD/crud_subject_register.cpp"
 using namespace std;
 
-int main(){
+int main() {
   Application::run();
   return 0;
 }

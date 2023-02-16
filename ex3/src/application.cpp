@@ -11,7 +11,7 @@ void Application::run(){
     switch (choices) {
       case 1:loginSystem();
         break;
-      case 2:
+      case 2:logoutSystem();
         break;
       case 3:CrudSubject::crudSubjectRun();
         break;

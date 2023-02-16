@@ -24,7 +24,7 @@ void Subject::setDepartment(Departments department) noexcept {
 }
 
 ostream &operator<<(ostream &os, const Subject &rhs) {
-  os << setw(10) << left << rhs.id << setw(50) << left << rhs.name << setw(10)
+  os << setw(10) << left << rhs.id << setw(10) << left << rhs.name << setw(10)
      << left << rhs.department;
   return os;
 }

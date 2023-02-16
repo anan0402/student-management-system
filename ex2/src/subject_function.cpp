@@ -60,7 +60,7 @@ void getSubjectID(Subject *s) {
   Subject st1(name, ID1, department);
   *s = st1;
 }
-void subjectDisplay() {
+void subjectModify() {
   cout << "1. Modify name" << endl;
   cout << "2. Modify ID" << endl;
   cout << "3. Quit" << endl;
@@ -73,7 +73,7 @@ void modify(Subject *s) {
   string department;
   int choice;
   do {
-    subjectDisplay();
+    subjectModify();
     choice = ninput();
     switch (choice) {
       case 1:

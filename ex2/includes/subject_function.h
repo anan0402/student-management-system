@@ -8,7 +8,7 @@
 using namespace std;
 void getSubjectInfor(Subject *s);
 void getSubjectID(Subject *s);
-void subjectDisplay();
+void subjectModify();
 void modify(Subject *s);
 void display(const list<Subject> &l);
 #endif //STUDENT_MANAGEMENT_SYSTEM_SUBJECTFUNCTIONFILE_H
