@@ -6,7 +6,7 @@
 #define STUDENT_MANAGEMENT_SYSTEM_EX3_SRC_STUDENT_FUNCTION_H_
 void displayStudent(const vector<Student> &vec);
 string identify();
-bool checkDateOfBirth(const string &s);
+bool checkDate(const string &s);
 void getStudentInfor(Student *s);
 void getStudentID(Student *s);
 void studentModify();

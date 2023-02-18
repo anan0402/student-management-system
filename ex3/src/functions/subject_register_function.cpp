@@ -3,13 +3,95 @@
 //
 
 using namespace std;
-void getSubjectRegisterInfor(){
+
+SubjectRegister getSubjectRegisterInfor(const vector<Subject> &subject_vec,
+                                        const vector<Student> &student_vec) {
   Subject subject;
-  vector<Student>vec;
+  string subject_id;
+  vector<Student> vec;
+  string student_id;
   string code;
   string date;
+  do {
+    cout << GET_SUBJECT_ID_ANNOUNCE << endl;
+    subject_id = sInput(GET_SUBJECT_ID);
+    for (auto const &elem : subject_vec) {
+      if (subject_id == elem.getID()) {
+        subject = elem;
+        break;
+      }
+    }
+  } while (subject_id.empty());
+  if (subject.empty()) {
+    cout << SYSTEM_NOTICE << DONT_EXIST_SUBJECT << endl;
+    exit(0);
+  }
+  student_id = sInput(GET_STUDENT_ID);
+  for (auto const &student : student_vec) {
+    if (student_id == student.getID()) {
+      cout << student << endl;
+      vec.push_back(student);
+    }
+  }
+  if (vec.empty()) {
+    cout << SYSTEM_NOTICE << DONT_EXIST_STUDENT << endl;
+  }
+  do {
+    cout << GET_CLASS_CODE_ANNOUNCE << endl;
+    code = sInput(GET_CLASS_CODE);
+  } while (code.empty());
+
+  do {
+    cout << DOB_ANNOUNCEMENT << endl;
+    date = sInput(GET_DATE);
+  } while (!checkDate(date)); // checkDate (date) == false
+
+  SubjectRegister temp{subject, vec, code, date};
+  return temp;
 }
-
-void updateSubjectRegisterInfor(){
-
+void modifySubjectRegister() {
+  cout << THE_SUBJECT_REGISTER_MENU << endl;
+  cout << setw(50) << setfill('=') << "" << endl;
+  cout << setfill(' ') << endl;
+  cout << SELECTIONS;
+}
+void updateSubjectRegisterInfor(SubjectRegister *s,
+                                const vector<Student> &student_vec) {
+  int choice;
+  string student_id;
+  string date;
+  vector<Student> vec;
+  do {
+    modifySubjectRegister();
+    choice = nInput();
+    switch (choice) {
+      case 1:
+        do {
+          cout << DOB_ANNOUNCEMENT << endl;
+          date = sInput(GET_DATE);
+        } while (!checkDate(date)); // checkDate (date) == false
+        s->setDate(date);
+        break;
+      case 2:student_id = sInput(GET_STUDENT_ID);
+        vec = s->getVec();
+        for (auto const &student : student_vec)
+          if (student.getID() == student_id) {
+            if (vec.empty()) {
+              vec.push_back(student);
+            } else {
+              for (auto const &elem : vec) {
+                if (student_id == elem.getID())
+                  break;
+                else
+                  vec.push_back(student);
+              }
+            }
+          }
+        s->setVec(vec);
+        break;
+      case 3: cout << SYSTEM_NOTICE << QUIT_SYSTEM << endl;
+        break;
+      default:cout << SYSTEM_NOTICE << UNKNOWN_SELECTION << endl;
+    }
+  } while (choice != 3);
 }

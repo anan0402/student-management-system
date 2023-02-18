@@ -36,7 +36,7 @@ string identify() {
   temp = "BA9-" + id;
   return temp;
 }
-bool checkDateOfBirth(const string &s) {
+bool checkDate(const string &s) {
   // 04/02/2000
 
   if (s.length() != 10) {
@@ -85,7 +85,7 @@ void getStudentInfor(Student *s) {
   while (true) {
     date_of_birth =
         sinput("Enter the date of birth of Student (follow date/month/years): ");
-    if (checkDateOfBirth(date_of_birth)) {
+    if (checkDate(date_of_birth)) {
       break;
     } else {
       cout << SYSTEM_NOTICE
@@ -174,7 +174,7 @@ void modify(Student *s) {
           date_of_birth =
               sinput(
                   "Enter the date of birth of Student (follow date/month/years): ");
-          if (checkDateOfBirth(date_of_birth)) {
+          if (checkDate(date_of_birth)) {
             break;
           } else {
             cout << SYSTEM_NOTICE

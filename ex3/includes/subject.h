@@ -14,11 +14,16 @@ class Subject {
  public:
   Subject();
   Subject(string name, string id, Departments department);
+  Subject(const Subject &src);
   ~Subject()=default;
+
   bool operator<(const Subject &rhs);
   bool operator==(const Subject &rhs) const;
+  bool empty ()const;
+
   void setName(string name) noexcept;
   void setId(string ID1) noexcept;
+  string getID()const;
   void setDepartment(Departments department) noexcept;
 
 };

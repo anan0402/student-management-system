@@ -16,6 +16,10 @@ class SubjectRegister {
   SubjectRegister();
   SubjectRegister(Subject subject, vector<Student>vec,string code, string date);
   ~SubjectRegister() = default;
+
+  void setDate (string date);
+  vector<Student> getVec();
+  void setVec(vector<Student>vec);
 };
 
 #endif //STUDENT_MANAGEMENT_SYSTEM_EX3_SUBJECT_REGISTER_H_

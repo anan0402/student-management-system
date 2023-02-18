@@ -35,28 +35,6 @@ string identify() {
   temp = "BA9-" + id;
   return temp;
 }
-bool checkDateOfBirth(const string &s) {
-  // 04/02/2000
-  cout << DOB_ANNOUNCEMENT << endl;
-  if (s.length() != 10) {
-    cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
-    return false;
-  }
-  for (char c : s)
-    if (!isdigit(c) && c != '/' || c == ' ')
-      return false;
-  if (stoi(s.substr(0, 2)) < 1 || stoi(s.substr(0, 2)) > 31) {
-    cout << SYSTEM_NOTICE << DAY_ERROR << endl;
-    return false;
-  }
-  if (stoi(s.substr(3, 2)) < 1 || stoi(s.substr(3, 2)) > 12) {
-    cout << SYSTEM_NOTICE << MOTH_ERROR << endl;
-    return false;
-  }
-  if (isNumber(s.substr(0, 3)) && isNumber(s.substr(3, 3)))
-    return false;
-  return true;
-}
 
 void getStudentInfor(Student *s) {
   string first_name;
@@ -85,9 +63,11 @@ void getStudentInfor(Student *s) {
     }
   }
   while (true) {
+    cout << DOB_ANNOUNCEMENT << endl;
+
     dob =
         sInput(DOB_INPUT);
-    if (checkDateOfBirth(dob)) {
+    if (checkDate(dob)) {
       break;
     } else {
       cout << SYSTEM_NOTICE
@@ -184,7 +164,7 @@ void modify(Student *s) {
         while (true) {
           cout << DOB_ANNOUNCEMENT << endl;
           dob = sInput(DOB_INPUT);
-          if (checkDateOfBirth(dob)) {
+          if (checkDate(dob)) {
             break;
           } else {
             cout << SYSTEM_NOTICE

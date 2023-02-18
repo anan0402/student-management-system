@@ -36,6 +36,7 @@ class Student {
   void setDateOfBirth(string dob) noexcept;
 
   void setID(string id) noexcept;
+  string getID()const;
 
   void setAddress(string address) noexcept;
 

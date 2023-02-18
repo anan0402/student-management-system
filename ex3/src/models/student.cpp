@@ -39,6 +39,9 @@ void Student::setDateOfBirth(string dob) noexcept {
 void Student::setID(string id) noexcept {
   this->id = id;
 }
+string Student::getID()const{
+  return id;
+}
 void Student::setAddress(string address) noexcept {
   this->address = address;
 }

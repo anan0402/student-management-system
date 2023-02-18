@@ -6,7 +6,7 @@
 #define STUDENT_MANAGEMENT_SYSTEM_STUDENTFUNCTIONFILE_H
 
 using namespace std;
-bool checkDateOfBirth(const string &s);
+bool checkDate(const string &s);
 string identify();
 void getStudentInfor(Student *s);
 void display(const list<Student> &l);

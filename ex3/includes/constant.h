@@ -51,7 +51,7 @@
 
 #define STUDENT_ID_ANNOUNCEMENT "The Student ID have the format (BA9-XXX). You just need to enter the numeric part of ID."
 #define NUMERIC "Enter the numeric part of ID (XXX): "
-#define DOB_ANNOUNCEMENT "Date of birth is requireable and, the length of string need to be equal to 10."
+#define DOB_ANNOUNCEMENT "Date is requireable and, the length of string need to be equal to 10."
 #define DOB_INPUT "Enter the date of birth of Student (follow date/month/years): "
 #define DAY_ERROR "Day is not larger than 31."
 #define MOTH_ERROR  "Moth is not larger than 12."
@@ -88,6 +88,16 @@
 
 #define SUBJECT_REGISTER "The student list of subject: "
 #define CLASS_CODE "The code: "
+
+#define GET_SUBJECT_ID_ANNOUNCE "The subject id is requireable. If the subject id is empty, the loop is never end."
+#define GET_SUBJECT_ID "Enter the subject id: "
+#define GET_STUDENT_ID "Enter the student id: "
+#define GET_CLASS_CODE_ANNOUNCE "The code is requireable. If the code is empty, the loop is never end."
+#define GET_CLASS_CODE "Enter the class code: "
+#define GET_DATE "Enter the date: "
+
+#define THE_SUBJECT_REGISTER_MENU "The modify menu\n 1.Modify the date\n 2.Add new student\n 3.Quit\n"
+
 
 #define SUCCESSFUL_DELETE "Successfully delete"
 #endif //STUDENT_MANAGEMENT_SYSTEM_EX3_INCLUDES_CONSTANT_H_

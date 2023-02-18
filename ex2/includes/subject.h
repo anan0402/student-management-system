@@ -17,6 +17,7 @@ struct Subject {
   bool operator<(const Subject &rhs);
   bool operator==(const Subject &rhs) const;
 
+
   void set_name(string name);
   string get_name() const;
   void set_id(string ID1);

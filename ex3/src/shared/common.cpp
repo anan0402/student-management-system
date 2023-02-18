@@ -58,3 +58,24 @@ int nInput() {
   getline(cin, value);
   return stoi(value);
 }
+bool checkDate(const string &s) {
+  // 04/02/2000
+  if (s.length() != 10) {
+    cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
+    return false;
+  }
+  for (char c : s)
+    if (!isdigit(c) && c != '/' || c == ' ')
+      return false;
+  if (stoi(s.substr(0, 2)) < 1 || stoi(s.substr(0, 2)) > 31) {
+    cout << SYSTEM_NOTICE << DAY_ERROR << endl;
+    return false;
+  }
+  if (stoi(s.substr(3, 2)) < 1 || stoi(s.substr(3, 2)) > 12) {
+    cout << SYSTEM_NOTICE << MOTH_ERROR << endl;
+    return false;
+  }
+  if (isNumber(s.substr(0, 3)) && isNumber(s.substr(3, 3)))
+    return false;
+  return true;
+}
