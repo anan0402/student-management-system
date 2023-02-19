@@ -12,7 +12,8 @@ struct Subject{
 	friend ostream &operator<< (ostream& os, const Subject& rhs);
 	string name;
 	string ID1;
-	Subject() :name{ "Unknown" }, ID1{ "Unknown" } {}
+    string department;
+	Subject() :name{ "Unknown" }, ID1{ "Unknown" }, department {"Unk"}{}
 	Subject(string name, string ID)
 		:name{name}, ID1{ID}{}
 	bool operator<(const Subject& rhs) {
