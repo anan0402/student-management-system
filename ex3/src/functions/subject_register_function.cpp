@@ -58,9 +58,12 @@ void modifySubjectRegister() {
 void updateSubjectRegisterInfor(SubjectRegister *s,
                                 const vector<Student> &student_vec) {
   int choice;
-  string student_id;
+  Student *fStudent{nullptr};
+  fStudent = new Student();
+  auto it = student_vec.begin();
   string date;
   vector<Student> vec;
+  auto it1 = vec.begin();
   do {
     modifySubjectRegister();
     choice = nInput();
@@ -72,21 +75,24 @@ void updateSubjectRegisterInfor(SubjectRegister *s,
         } while (!checkDate(date)); // checkDate (date) == false
         s->setDate(date);
         break;
-      case 2:student_id = sInput(GET_STUDENT_ID);
+      case 2:
         vec = s->getVec();
-        for (auto const &student : student_vec)
-          if (student.getID() == student_id) {
-            if (vec.empty()) {
-              vec.push_back(student);
-            } else {
-              for (auto const &elem : vec) {
-                if (student_id == elem.getID())
-                  break;
-                else
-                  vec.push_back(student);
-              }
+        getStudentID(fStudent);
+        it = find(student_vec.begin(), student_vec.end(), *fStudent);
+        if(it != student_vec.end()){
+          if(vec.empty()){
+            vec.push_back(*it);
+          } else{
+            it1 = find(vec.begin(), vec.end(), *fStudent);
+            if(it1 == vec.end()){
+              vec.push_back(*it1);
+            } else{
+              cout<<SYSTEM_NOTICE<<EXIST_STUDENT<<endl;
             }
           }
+        } else{
+          cout<<SYSTEM_NOTICE<<DONT_EXIST_STUDENT<<endl;
+        }
         s->setVec(vec);
         break;
       case 3: cout << SYSTEM_NOTICE << QUIT_SYSTEM << endl;
