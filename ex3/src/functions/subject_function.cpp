@@ -4,7 +4,8 @@
 
 using namespace std;
 void displaySubject(const vector<Subject> &vec) {
-  cout << setw(10) << left << "ID" << setw(50) << left << "Name of Subject"
+  cout << setw(14) << left << "ID" << "Name of Subject"
+      << setw(30) << right << "Department"
        << endl;
   cout << setw(60) << setfill('-') << "" << endl;
   cout << setfill(' ') << endl;
@@ -17,12 +18,12 @@ void getSubjectInfor(Subject *s) {
   string id;
   Departments department;
   while (true) {
-    cout<<SUBJECT_NAME_ANNOUNCEMENT<<endl;
+    cout << SUBJECT_NAME_ANNOUNCEMENT << endl;
     name = sInput(SUBJECT_NAME_INPUT);
     if (!name.empty() && checkName(name, true))
       break;
     else
-      cout << SYSTEM_NOTICE<<WRONG_FORMAT << endl;
+      cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
   }
   while (true) {
     id = sInput(SUBJECT_ID_INPUT);
@@ -32,12 +33,13 @@ void getSubjectInfor(Subject *s) {
       cout << SYSTEM_NOTICE << EMPTY << endl;
   }
   while (true) {
-    cout<<DEPARTMENT_INPUT;
+    cout << DEPARTMENT_ANNOUNCE;
+    cout << DEPARTMENT_INPUT;
     department = static_cast<Departments>(nInput());
     if (isValidDepartment(department)) {
-        break;
+      break;
     } else {
-      cout << SYSTEM_NOTICE<<WRONG_FORMAT<< endl;
+      cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
     }
   }
   Subject s1(name, id, Departments(department));
@@ -57,7 +59,7 @@ void getSubjectID(Subject *s) {
   *s = st1;
 }
 void subjectModify() {
-  cout<< THE_SUBJECT_MODIFY_MENU <<endl;
+  cout << THE_SUBJECT_MODIFY_MENU << endl;
   cout << setw(50) << setfill('=') << "" << endl;
   cout << setfill(' ') << endl;
   cout << SELECTIONS;
@@ -73,12 +75,12 @@ void modify(Subject *s) {
     switch (choice) {
       case 1:
         while (true) {
-          cout<<SUBJECT_NAME_ANNOUNCEMENT<<endl;
+          cout << SUBJECT_NAME_ANNOUNCEMENT << endl;
           name = sInput(SUBJECT_NAME_INPUT);
           if (!name.empty() && checkName(name, true))
             break;
           else
-            cout << SYSTEM_NOTICE<<WRONG_FORMAT << endl;
+            cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
         }
         s->setName(name);
         break;
@@ -92,22 +94,22 @@ void modify(Subject *s) {
         }
         s->setId(id);
         break;
-      case 3: while (true) {
-          cout<<DEPARTMENT_ANNOUNCE;
-          cout<<DEPARTMENT_INPUT;
+      case 3:
+        while (true) {
+          cout << DEPARTMENT_ANNOUNCE;
+          cout << DEPARTMENT_INPUT;
           department = static_cast<Departments>(nInput());
           if (isValidDepartment(department)) {
             break;
           } else {
-            cout << SYSTEM_NOTICE<<WRONG_FORMAT<< endl;
+            cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
           }
         }
         s->setDepartment(department);
         break;
       case 4:cout << SYSTEM_NOTICE << QUIT_SYSTEM << endl;
         break;
-      default:
-        cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
+      default:cout << SYSTEM_NOTICE << WRONG_FORMAT << endl;
         break;
     }
   } while (choice != 3);

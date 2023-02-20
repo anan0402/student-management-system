@@ -29,7 +29,6 @@ SubjectRegister getSubjectRegisterInfor(const vector<Subject> &subject_vec,
   student_id = sInput(GET_STUDENT_ID);
   for (auto const &student : student_vec) {
     if (student_id == student.getID()) {
-      cout << student << endl;
       vec.push_back(student);
     }
   }
@@ -81,11 +80,11 @@ void updateSubjectRegisterInfor(SubjectRegister *s,
         it = find(student_vec.begin(), student_vec.end(), *fStudent);
         if(it != student_vec.end()){
           if(vec.empty()){
-            vec.push_back(*it);
+            vec.emplace_back(*it);
           } else{
             it1 = find(vec.begin(), vec.end(), *fStudent);
             if(it1 == vec.end()){
-              vec.push_back(*it1);
+              vec.emplace_back(*it);
             } else{
               cout<<SYSTEM_NOTICE<<EXIST_STUDENT<<endl;
             }
@@ -100,4 +99,26 @@ void updateSubjectRegisterInfor(SubjectRegister *s,
       default:cout << SYSTEM_NOTICE << UNKNOWN_SELECTION << endl;
     }
   } while (choice != 3);
+  delete fStudent;
+}
+
+void deleteStudent (SubjectRegister *s){
+  Student *fStudent{nullptr};
+  fStudent = new Student();
+  vector<Student> vec;
+  auto it = vec.begin();
+  vec = s->getVec();
+  getStudentID(fStudent);
+  if(vec.empty()){
+    cout<<SYSTEM_NOTICE<<THE_EMPTY_VECTOR<<endl;
+  }else{
+    it = find(vec.begin(), vec.end(),*fStudent);
+    if(it != vec.end()){
+      vec.erase(it);
+    } else{
+      cout<<SYSTEM_NOTICE<<DONT_EXIST_STUDENT<<endl;
+    }
+  }
+  s->setVec(vec);
+  delete fStudent;
 }

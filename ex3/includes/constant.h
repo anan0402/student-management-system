@@ -47,6 +47,7 @@
 #define LOGOUT_ANNOUNCEMENT "Do you want to logout the system ? Enter yes or no (Y/N).\n Enter 1 = Y, you will quit the system.\n Enter 0 = N, the system will be continue.\n Enter your choice (1=Y/0=N): "
 #define SYSTEM_CONTINUE "The system still continue."
 #define SUCCESSFUL_LOGOUT "See you later!"
+#define SUCCESSFUL_LOGIN "Successful login!"
 
 
 #define STUDENT_ID_ANNOUNCEMENT "The Student ID have the format (BA9-XXX). You just need to enter the numeric part of ID."
@@ -63,7 +64,7 @@
 #define PHONE_ANNOUNCEMENT "Phone number is digit and the phone number need have 10 nums."
 #define PHONE_INPUT "Enter the phone number of Student: "
 #define DEPARTMENT_ANNOUNCE "There are 10 department that you can enter.\n ICT = 0\n FST = 1\n CS = 2\n MST = 3\n CHEM = 4\n AE = 5\n NANO = 6\n MATH = 7\n WEO = 8\n SPACE = 9\n"
-#define DEPARTMENT_INPUT "Enter the department:"
+#define DEPARTMENT_INPUT "Enter the department (number from 1 -> 10):"
 
 #define SUBJECT_NAME_ANNOUNCEMENT "Name  is alphabet and requireable , preventing enter number, empty string and space."
 #define SUBJECT_NAME_INPUT "Enter the name of Subject: "
@@ -98,6 +99,7 @@
 
 #define THE_SUBJECT_REGISTER_MENU "The modify menu\n 1.Modify the date\n 2.Add new student\n 3.Quit\n"
 
+#define THE_EMPTY_VECTOR "The vector is empty"
 
 #define SUCCESSFUL_DELETE "Successfully delete"
 #endif //STUDENT_MANAGEMENT_SYSTEM_EX3_INCLUDES_CONSTANT_H_
