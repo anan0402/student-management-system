@@ -41,7 +41,7 @@ SubjectRegister getSubjectRegisterInfor(const vector<Subject> &subject_vec,
   } while (code.empty());
 
   do {
-    cout << DOB_ANNOUNCEMENT << endl;
+    cout << DT_ANNOUNCEMENT << endl;
     date = sInput(GET_DATE);
   } while (!checkDate(date)); // checkDate (date) == false
 

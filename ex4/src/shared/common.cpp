@@ -1,29 +1,16 @@
 //
-// Created by AnDTN on 2/13/2023.
+// Created by AnDTN on 2/21/2023.
 //
 
 using namespace std;
 void displayCrudMenu(){
   cout<<THE_CRUD_MENU<<endl;
-  cout<<CREATE<<endl;
-  cout<<DISPLAY<<endl;
-  cout<<UPDATE<<endl;
-  cout<<DELETE<<endl;
-  cout<<QUIT<<endl;
   cout << setw(50) << setfill('=') << "" << endl;
   cout << setfill(' ') << endl;
   cout << SELECTIONS;
 }
 void displayMenu() {
-  cout << THE_MENU << endl;
-  cout << CHOICE_1 << endl;
-  cout << CHOICE_2 << endl;
-  cout << CHOICE_3 << endl;
-  cout << CHOICE_4 << endl;
-  cout << CHOICE_5 << endl;
-  cout << CHOICE_6 << endl;
-  cout << CHOICE_7 << endl;
-  cout << CHOICE_8 << endl;
+  cout << THE_SYSTEM_MENU << endl;
   cout << setw(50) << setfill('=') << "" << endl;
   cout << setfill(' ') << endl;
   cout << SELECTIONS;
@@ -67,7 +54,7 @@ bool checkDate(const string &s) {
   for (char c : s)
     if (!isdigit(c) && c != '/' || c == ' ')
       return false;
-  if(s[2] != '/' || s[5] != '/')
+  if(s[2] != '/' && s[5] != '/')
     return false;
   if (stoi(s.substr(0, 2)) < 1 || stoi(s.substr(0, 2)) > 31) {
     cout << SYSTEM_NOTICE << DAY_ERROR << endl;

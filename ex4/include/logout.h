@@ -1,0 +1,10 @@
+//
+// Created by AnDTN on 2/21/2023.
+//
+
+#ifndef STUDENT_MANAGEMENT_SYSTEM_EX4_LOGOUT_H_
+#define STUDENT_MANAGEMENT_SYSTEM_EX4_LOGOUT_H_
+
+void logoutSystem();
+
+#endif //STUDENT_MANAGEMENT_SYSTEM_EX4_LOGOUT_H_

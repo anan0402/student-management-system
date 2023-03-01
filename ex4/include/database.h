@@ -1,0 +1,9 @@
+//
+// Created by AnDTN on 2/22/2023.
+//
+
+#ifndef STUDENT_MANAGEMENT_SYSTEM_EX4_INCLUDE_DATABASE_H_
+#define STUDENT_MANAGEMENT_SYSTEM_EX4_INCLUDE_DATABASE_H_
+using namespace std;
+void readFile(string filename);
+#endif //STUDENT_MANAGEMENT_SYSTEM_EX4_INCLUDE_DATABASE_H_
